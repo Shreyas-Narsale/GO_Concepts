@@ -62,4 +62,5 @@ func main() {
 
 	// byt = 'म' not allowed multi byte unicode , So required memory of 4 bytes
 	//fmt.Printf("%c", byt)
+
 }

@@ -32,9 +32,10 @@ func main() {
 	wg.Wait()
 
 	//
-	cha := make(chan int)
-	cha <- 5
-	fmt.Println(<-cha)
+	// cha := make(chan int)
+	// fmt.Println(<-cha)
+	// cha <- 5
+
 	// Deadlock Issue : channel is unbuffered, so need a receiver to be ready before sending.
 
 	channel = make(chan int)

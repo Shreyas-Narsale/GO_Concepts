@@ -1,29 +1,44 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"os"
-	"strconv"
-	"strings"
 )
 
+type CustomError struct {
+	Code    int
+	Message string
+}
+
+func (e *CustomError) Error() string {
+	return fmt.Sprintf("Error %d: %s", e.Code, e.Message)
+}
+
 func main() {
-	fmt.Println("Give rating:")
 
-	reader := bufio.NewReader(os.Stdin)
+	/*
+		error
+			error is a built-in interface .
+			type error interface {
+		    	Error() string
+			}
 
-	input, _ := reader.ReadString('\n')
 
-	// comma ok || err
-	fmt.Println("Input Data is :", input)
-	fmt.Printf("Type of input %T \n", input)
+		errors
+			errors is a package
+
+	*/
 
 	//Conversion
-	val, err := strconv.ParseFloat(strings.TrimSpace(input), 64)
-	if err != nil {
-		fmt.Println("error occured", err)
-	}
-	fmt.Println("User has given rating ", val, " *")
+	var err error
+	err = fmt.Errorf("hello")
+	fmt.Println("error ", err.Error())
+
+	var custom_err CustomError
+	custom_err.Code = 100
+	custom_err.Message = "user not found"
+
+	var err1 error
+	err1 = &custom_err
+	fmt.Println(err1.Error())
 
 }

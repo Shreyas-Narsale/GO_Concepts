@@ -30,7 +30,6 @@ func Sum(value1, value2 int) int {
 func Add(values ...int) int {
 	res := 0
 	fmt.Println("Inside Add")
-
 	for _, val := range values {
 		res = res + val
 	}
