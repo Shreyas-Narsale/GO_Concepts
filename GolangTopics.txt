@@ -13,8 +13,6 @@ mysql connection (tcp handshake ) connectinion pooling
 
 indexing not used each column
 
-
-
 race conditions vs deadlock
 
 jwt
