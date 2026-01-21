@@ -15,6 +15,9 @@ func main() {
 
 	iRes = Add(2, 3, 4, 5, 6)
 	fmt.Println(iRes)
+
+	Genric("sdbsdbj", "sbbsaj")
+	Vardic(10, "sdhha", "shha")
 }
 
 func Demo() {
@@ -34,4 +37,15 @@ func Add(values ...int) int {
 		res = res + val
 	}
 	return res
+}
+
+
+func Genric[T any](inputs ...T) {
+	for _, dt := range inputs {
+		fmt.Println(dt)
+	}
+}
+
+func Vardic(no int, strArr ...string) {
+	fmt.Println("no", no, "strArr", strArr)
 }
