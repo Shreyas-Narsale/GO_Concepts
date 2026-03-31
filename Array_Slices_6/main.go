@@ -82,4 +82,22 @@ func main() {
 	index := 2
 	courses = append(courses[:index], courses[index+1:]...)
 	fmt.Println(courses)
+
+
+	// Nil SLice 
+	var s []int;
+	// only declared , no memory allocated
+	//s == nil → ✅ true
+	// len(s) → 0
+	// cap(s) → 0
+
+
+	// Empty Slice
+	s := []int{};
+	s := make([]int, 0);
+	// declared and initiated
+	// so memoery allocated but currently empty in size
+	// s == nil → ❌ false
+	// len(s) → 0
+	// cap(s) → ≥ 0
 }
