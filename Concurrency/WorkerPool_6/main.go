@@ -35,7 +35,7 @@ func main() {
 
 	wg.Wait()
 	close(OutputResults)
-
+	// range channel only stops when we close that channel
 	for result := range OutputResults {
 		fmt.Println("Result val:", result)
 	}
