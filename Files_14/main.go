@@ -6,23 +6,63 @@ import (
 	"io/ioutil"
 	"os"
 )
-
+/*
+os → low-level file & system operations
+io → generic input/output abstractions
+os = “open the door” (file system access)
+io = “move the data through the door , perform byte (data) realted operations
+*/
 func main() {
-	content := "Hello , Jay Ganesh"
-	fileName := "./log.txt"
-	file, err := os.Create(fileName)
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
+	// os package 
+	file, err := os.Open("file.txt")       // read-only
+	file, err := os.Create("file.txt")     // create or truncate
+	file, err := os.OpenFile("file.txt", os.O_RDWR|os.O_CREATE, 0644)
+	/*
+	os.O_RDONLY → read only
+	os.O_WRONLY → write only
+	os.O_RDWR → read + write
+	os.O_APPEND → append
+	os.O_CREATE → create if not exists
+	os.O_TRUNC → truncate
+	*/
+	// 0644  // 4 - read , 2 = write , 1 excute
 
-	len, err := io.WriteString(file, content)
-	if err != nil {
-		fmt.Println(err)
-		return
+	file.Write([]byte("Hello"))
+	file.WriteString("World")
+
+	data := make([]byte, 100)
+	n, err := file.Read(data)
+	defer file.Close()
+	
+	info, _ := os.Stat("file.txt")
+	fmt.Println(info.Name())
+	fmt.Println(info.Size())
+
+	// read dir
+	files, _ := os.ReadDir(".")
+
+	for _, f := range files {
+	    fmt.Println(f.Name())
 	}
-	fmt.Println("No. of Bytes writtern", len)
-	ReadFile(fileName)
+	// io
+	// Core interface in Go
+	// Represents any readable stream: Everything is a stream of bytes.
+	/*Used for:
+	files
+	network
+	buffers
+	*/
+	src, _ := os.Open("a.txt")
+	dst, _ := os.Create("b.txt")
+
+	io.Copy(dst, src)
+
+	data, _ := io.ReadAll(file)
+	io.WriteString(file, "Hello")
+	/*
+	o.ReadAll → reads entire content into memory
+	file.Read → reads chunk by chunk
+	*/
 }
 
 func ReadFile(filename string) {
