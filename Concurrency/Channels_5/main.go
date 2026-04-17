@@ -50,4 +50,10 @@ func main() {
 	cha1 <- 5
 	fmt.Println(<-cha1)
 	//Allowed bcuz it store data in buffer
+
+	//close channel
+	/*You close a channel when:
+	✔ sender is done sending forever
+	✔ receivers need to stop looping
+	*/
 }
