@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"io"
-	"io/ioutil"
 	"os"
 )
 /*
@@ -63,13 +62,4 @@ func main() {
 	o.ReadAll → reads entire content into memory
 	file.Read → reads chunk by chunk
 	*/
-}
-
-func ReadFile(filename string) {
-	data, err := ioutil.ReadFile(filename)
-	if err != nil {
-		panic("Unable to read file")
-	}
-
-	fmt.Println("Data is", string(data))
 }
