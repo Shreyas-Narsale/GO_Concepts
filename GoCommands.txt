@@ -1,0 +1,77 @@
+
+
+# build Go binaries for different OS/architectures
+  GOOS=linux GOARCH=amd64 go build -o app-linux
+  GOOS: linux, windows, darwin(macOS)
+  GOARCH	
+  amd64	:64-bit Intel/AMD
+  arm64	ARM (M1/M2, mobile, etc.)
+  386	32-bit
+
+# CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o app
+  if we are calling c functions, then use cgo compiler which is lighter as compared to gcc, faster compilation
+
+
+# go mod init
+  Creates:
+  go.mod file for project(service creation)
+
+# go mod tidy
+  Adds missing dependencies
+  Removes unused ones
+
+# go mod download
+  ✔ Downloads dependencies locally
+
+# go get
+  go get github.com/gin-gonic/gin
+  ✔ What it does:
+  Adds dependency
+  Updates go.mod
+
+# testing test cases
+  go test ./...
+
+#coverage
+  go test -cover
+  
+  # go generate
+  used to run cmd befor running your code
+  go generate ./...
+  It scans your code for special comments and executes them.
+  ex. Inside go file
+  //go:generate <command>
+  
+  //go:generate echo "Hello, Code Generation!"
+  
+  cmd:
+  go generate
+  ✔ Output:
+  
+  Hello, Code Generation!
+  
+  Works as a comment (ignored by compiler)
+  Runs commands in shell
+  File must be in a Go package
+
+ex. Mock Genration for testing
+isnide repository,
+package user
+
+type UserRepository interface {
+    GetUser(id int) (string, error)
+}
+
+keep this cmd in the repo file:
+//go:generate mockgen -source=repo.go -destination=mock_repo.go -package=user
+
+then when we hit:
+go generate ./...
+
+it will create
+// mock_repo.go (auto-generated)
+type MockUserRepository struct {
+    ctrl *gomock.Controller
+}
+
+then if we write test cases, then whis will use this mockRepsotiry
