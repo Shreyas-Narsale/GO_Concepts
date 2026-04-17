@@ -5,6 +5,8 @@ indexing
 go routine vs thread
 new vs make
 
+context
+
 GMP model in Go
 
 vertacila scalling vs horixal scalling
