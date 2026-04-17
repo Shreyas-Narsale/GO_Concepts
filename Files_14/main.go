@@ -10,7 +10,7 @@ import (
 os → low-level file & system operations
 io → generic input/output abstractions
 os = “open the door” (file system access)
-io = “move the data through the door , perform byte (data) realted operations
+io = “move the data through the door , handles data flow (read/write streams)
 */
 func main() {
 	// os package 
