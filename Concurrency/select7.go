@@ -48,6 +48,27 @@ func main() {
         fmt.Println("Timeout!")
     }
 
+    // infinite waiting loop
+    ch := make(chan int)
+
+    go func() {
+        for i := 0; i < 5; i++ {
+            ch <- i
+        }
+        close(ch)
+    }()
+    
+    for {
+        select {
+        case v, ok := <-ch:
+            if !ok {
+                fmt.Println("Channel closed")
+                return
+            }
+            fmt.Println(v)
+        }
+    }
+
     // if rcv not read , forgot send
     ch := make(chan int)
 
