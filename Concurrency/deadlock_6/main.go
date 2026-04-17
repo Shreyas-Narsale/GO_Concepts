@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+// sending with no receiver
 func main() {
 	ch := make(chan int)
 
@@ -18,3 +19,14 @@ func main() {
 
 //deadlock:
 //Goroutines wait forever for a resource that never becomes free
+
+
+// receving with no sender
+
+package main
+
+func main() {
+	ch := make(chan int)
+
+	<-ch // ❌ deadlock
+}
