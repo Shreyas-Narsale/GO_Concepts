@@ -21,7 +21,7 @@ Objects are divided into 3 sets:
 Color	Meaning
 White	: Not visited (candidate for deletion)
 Grey	: Discovered but not fully scanned
-Black	: Fully scanned (safe to delete)
+Black	: Fully scanned (safe )
 
 ✔ Stack:
 Local variables
