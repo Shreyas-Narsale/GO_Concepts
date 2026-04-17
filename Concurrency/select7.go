@@ -31,4 +31,38 @@ func main() {
     default:
         fmt.Println("No data available")
     }
+
+    // wait till specfic time
+    ch := make(chan string)
+
+    go func() {
+        time.Sleep(2 * time.Second)
+        ch <- "done"
+    }()
+
+    select {
+    case msg := <-ch:
+        fmt.Println("Received:", msg)
+
+    case <-time.After(1 * time.Second):
+        fmt.Println("Timeout!")
+    }
+
+    // if rcv not read , forgot send
+    ch := make(chan int)
+
+    select {
+        case ch <- 100:
+            fmt.Println("Sent 100")
+        default:
+            fmt.Println("Channel not ready for send")
+    }
+
+    // based on ctx for apis
+    select {
+        case <-ctx.Done():
+            fmt.Println("Cancelled")
+        case <-time.After(1 * time.Second):
+            fmt.Println("Timeout!")
+    }
 }
