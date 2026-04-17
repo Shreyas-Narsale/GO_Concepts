@@ -30,3 +30,5 @@ pprof : profiling tool
 
 skip analysis
 reflect
+
+map, slice, array ,slice array across functions, slices with append, interface nil - mcq question which contain code and assume answer
