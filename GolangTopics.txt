@@ -5,6 +5,8 @@ indexing
 go routine vs thread
 new vs make
 
+GMP model in Go
+
 vertacila scalling vs horixal scalling
 
 channel with new
