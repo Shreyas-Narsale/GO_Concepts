@@ -10,6 +10,9 @@ func main() {
 	//channel := make(chan int) //unbuffered Channel
 	channel := make(chan int, 2) //buffered Channel
 
+	// var ch chan int // nil channel
+	// Nil channel is always blocked
+
 	var wg sync.WaitGroup
 	wg.Add(2)
 
