@@ -33,8 +33,9 @@ func main() {
 
 	//
 	// cha := make(chan int)
-	// fmt.Println(<-cha)
 	// cha <- 5
+	// fmt.Println(<-cha)
+	
 
 	// Deadlock Issue : channel is unbuffered, so need a receiver to be ready before sending.
 
