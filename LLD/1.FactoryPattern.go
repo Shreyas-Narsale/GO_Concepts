@@ -7,6 +7,24 @@ import (
 /* factory Pattern:( Creational Desgin pattern)
 used to create objects without exposing the exact creation logic to the client.
 you create objects through a factory function/method.
+
+Advantages:
+Loose Coupling,
+Easy to Extend: Add new payment method,
+Centralized Object Creation: All creation logic in one place.
+
+Real-Time Uses Cases:
+Database Drivers
+	sql.Open("mysql")
+	sql.Open("postgres")
+	Driver selected internally.
+Logger Creation
+	GetLogger("file")
+	GetLogger("console")
+Cloud Providers
+	GetStorage("aws")
+	GetStorage("gcp")
+
 */
 
 type Payment interface {
@@ -55,25 +73,4 @@ func main() {
 
 }
 
-/*Advantages:
-Loose Coupling,
-Easy to Extend: Add new payment method,
-Centralized Object Creation: All creation logic in one place.
-*/
 
-/*
-Real-Time Uses Cases:
-Database Drivers
-	sql.Open("mysql")
-	sql.Open("postgres")
-
-	Driver selected internally.
-
-Logger Creation
-	GetLogger("file")
-	GetLogger("console")
-Cloud Providers
-	GetStorage("aws")
-	GetStorage("gcp")
-
-*/
