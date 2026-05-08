@@ -16,7 +16,7 @@ type UserBuilder struct {
 	user User // as user is private so we can's use outside package directly without Build() method , and Build method return user
 }
 
-func GetUser() *UserBuilder {
+func NewUserBuilder() *UserBuilder {
 	return &UserBuilder{}
 }
 
@@ -41,7 +41,7 @@ func (u *UserBuilder) Build() User {
 
 func main() {
 
-	user := GetUser().SetName("Shreyas").SetAge(25).SetEmail("xyz@gmail.com").Build()
+	user := NewUserBuilder().SetName("Shreyas").SetAge(25).SetEmail("xyz@gmail.com").Build()
 	fmt.Println(user)
 }
 
