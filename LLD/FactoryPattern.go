@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-/* factory Pattern:
+/* factory Pattern:(Creational Design Pattern)
 used to create objects without exposing the exact creation logic to the client.
 you create objects through a factory function/method.
 */
