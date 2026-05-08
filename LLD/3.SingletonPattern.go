@@ -7,6 +7,17 @@ only one object(instance) is created
 and provides a global access point to it.
 Thread-Safe Singleton
 Use: sync.Once
+
+Advantages:
+1. Single Shared Resource
+	One config/logger/db manager.
+2. Saves Memory
+
+Disadvantage:
+1. Tight Coupling
+
+Real-Time Uses Cases:
+	DB Connection
 */
 
 type DBConn struct {
@@ -32,16 +43,4 @@ func main() {
 
 }
 
-/*Advantages:
-1. Single Shared Resource
-	One config/logger/db manager.
-2. Saves Memory
 
-Disadvantage:
-1. Tight Coupling
-*/
-
-/*
-Real-Time Uses Cases:
-DB Connection
-*/
