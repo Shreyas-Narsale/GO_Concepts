@@ -4,6 +4,13 @@ import "fmt"
 
 /* Prototype Pattern:( Creational Design Pattern)
 Instead of building from scratch, you clone an existing object (prototype) and then modify it if needed.
+
+Real-Time Uses Cases:
+API Request Templates (Very common in Go services):
+	When calling external APIs:
+	Instead of building request every time:
+	baseRequest → clone → modify headers/body
+
 */
 
 type Prototype interface {
@@ -51,10 +58,4 @@ func main() {
 
 }
 
-/*
-Real-Time Uses Cases:
-API Request Templates (Very common in Go services):
-	When calling external APIs:
-	Instead of building request every time:
-	baseRequest → clone → modify headers/body
-*/
+
