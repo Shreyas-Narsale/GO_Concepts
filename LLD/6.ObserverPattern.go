@@ -62,7 +62,7 @@ func (yt *YouTubeChannel) NotifyAll(title string) {
 	}
 }
 
-// 3. Concrete Observers
+// 3. Concrete Observers : Consumer
 type User struct {
 	Name  string
 	Email string
