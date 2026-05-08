@@ -4,6 +4,13 @@ import "fmt"
 
 /* Builder Pattern:( Creational Design Pattern)
 used to create complex objects step-by-step.
+
+Real-Time Uses Cases:
+Database Query Builder
+	query := Select("*").From("users").Where("age > 18").OrderBy("name").Limit(10).Build()
+Kubernaties Config Builder:
+	pod := NewPodBuilder().SetName("nginx").SetImage("nginx:latest").SetCPU("500m").SetMemory("1Gi").AddPort(80).Build()
+	
 */
 
 type User struct {
@@ -45,10 +52,3 @@ func main() {
 	fmt.Println(user)
 }
 
-/*
-Real-Time Uses Cases:
-Database Query Builder
-	query := Select("*").From("users").Where("age > 18").OrderBy("name").Limit(10).Build()
-Kubernaties Config Builder:
-	pod := NewPodBuilder().SetName("nginx").SetImage("nginx:latest").SetCPU("500m").SetMemory("1Gi").AddPort(80).Build()
-*/
