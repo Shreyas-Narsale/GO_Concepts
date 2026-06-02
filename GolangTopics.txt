@@ -36,3 +36,5 @@ reflect
 enum
 
 map, slice, array ,slice array across functions, slices with append, interface nil , context, reflect- mcq question which contain code and assume answer
+
+batch = batch[:1] vs batch = append(batch[:1])
