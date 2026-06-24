@@ -29,4 +29,9 @@ func main() {
 		fmt.Println("failure")
 	}
 
+	var str string // read full string until next line
+	reader := bufio.NewReader(os.Stdin)
+	str, _ = reader.ReadString('\n')
+	fmt.Println(str)
+
 }
